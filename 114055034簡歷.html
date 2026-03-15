@@ -7,120 +7,179 @@
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:"Microsoft JhengHei",sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;
 }
 
 body{
-background:#f3f6ff;
-padding:30px;
+  background:linear-gradient(135deg,#eef2ff,#f7f9ff);
+  padding:30px;
+  color:#222;
 }
 
 .container{
-max-width:900px;
-margin:auto;
-background:white;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-overflow:hidden;
+  max-width:950px;
+  margin:auto;
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 14px 40px rgba(0,0,0,0.12);
 }
 
 .header{
-background:linear-gradient(135deg,#4a5cff,#7a88ff);
-color:white;
-padding:35px;
+  background:linear-gradient(135deg,#4a5cff,#7a88ff);
+  color:white;
+  padding:40px 35px;
 }
 
 .header h1{
-font-size:32px;
+  font-size:34px;
+  margin-bottom:8px;
+  letter-spacing:1px;
 }
 
 .header p{
-margin-top:6px;
-opacity:0.9;
+  font-size:16px;
+  opacity:0.95;
 }
 
 .main{
-display:grid;
-grid-template-columns:280px 1fr;
+  display:grid;
+  grid-template-columns:300px 1fr;
 }
 
 .sidebar{
-background:#f7f8ff;
-padding:25px;
-border-right:1px solid #eee;
+  background:#f8f9ff;
+  padding:28px 24px;
+  border-right:1px solid #e8ebff;
 }
 
 .content{
-padding:30px;
+  padding:32px 30px;
+}
+
+.profile{
+  text-align:center;
+  margin-bottom:26px;
+}
+
+.profile img{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #4a5cff;
+  box-shadow:0 8px 20px rgba(74,92,255,0.2);
+  background:#fff;
 }
 
 .section{
-margin-bottom:25px;
+  margin-bottom:28px;
 }
 
 .section h2{
-font-size:18px;
-color:#4a5cff;
-margin-bottom:10px;
-border-bottom:2px solid #e0e4ff;
-padding-bottom:5px;
+  font-size:18px;
+  color:#4a5cff;
+  margin-bottom:12px;
+  padding-bottom:6px;
+  border-bottom:2px solid #dfe5ff;
 }
 
 .info{
-margin-bottom:8px;
+  margin-bottom:10px;
+  font-size:15px;
+  line-height:1.7;
+  word-break:break-all;
 }
 
 .skill{
-display:inline-block;
-background:#e6e9ff;
-color:#4a5cff;
-padding:6px 12px;
-border-radius:20px;
-margin:4px;
-font-size:14px;
+  display:inline-block;
+  background:#e9edff;
+  color:#4a5cff;
+  padding:7px 12px;
+  border-radius:999px;
+  margin:5px 5px 0 0;
+  font-size:14px;
+  font-weight:600;
 }
 
 .card{
-background:#fafbff;
-padding:15px;
-border-radius:12px;
-border:1px solid #eee;
-margin-bottom:10px;
+  background:#fbfcff;
+  border:1px solid #ecefff;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:14px;
+  line-height:1.8;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(74,92,255,0.08);
+}
+
+.card-title{
+  font-size:17px;
+  font-weight:700;
+  color:#2c3b9b;
+  margin-bottom:6px;
+}
+
+.button-area{
+  margin-top:18px;
 }
 
 button{
-background:#4a5cff;
-color:white;
-border:none;
-padding:10px 16px;
-border-radius:10px;
-cursor:pointer;
-margin-top:10px;
+  background:#4a5cff;
+  color:white;
+  border:none;
+  padding:11px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:15px;
+  transition:0.2s ease;
 }
 
 button:hover{
-background:#2f3fdc;
+  background:#3145ef;
 }
 
 .footer{
-text-align:center;
-padding:15px;
-font-size:14px;
-color:#666;
-border-top:1px solid #eee;
+  text-align:center;
+  padding:18px;
+  font-size:14px;
+  color:#666;
+  border-top:1px solid #eef1ff;
+  background:#fcfdff;
 }
 
-@media(max-width:750px){
-.main{
-grid-template-columns:1fr;
-}
-.sidebar{
-border-right:none;
-border-bottom:1px solid #eee;
-}
+@media (max-width: 768px){
+  body{
+    padding:16px;
+  }
+
+  .main{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    border-right:none;
+    border-bottom:1px solid #e8ebff;
+  }
+
+  .header{
+    padding:30px 24px;
+  }
+
+  .header h1{
+    font-size:28px;
+  }
+
+  .content{
+    padding:24px 20px;
+  }
 }
 </style>
 </head>
@@ -129,70 +188,106 @@ border-bottom:1px solid #eee;
 
 <div class="container">
 
-<div class="header">
-<h1 id="name">吳瑋廷</h1>
-<p>亞洲大學學生｜個人履歷</p>
+  <div class="header">
+    <h1>吳瑋廷</h1>
+    <p>亞洲大學學生｜個人履歷網站</p>
+  </div>
+
+  <div class="main">
+
+    <div class="sidebar">
+
+      <div class="profile">
+        <img src="images/profile.jpg" alt="吳瑋廷照片">
+      </div>
+
+      <div class="section">
+        <h2>基本資料</h2>
+        <div class="info"><b>姓名：</b>吳瑋廷</div>
+        <div class="info"><b>學校：</b>亞洲大學</div>
+        <div class="info"><b>學號：</b>114055034</div>
+        <div class="info"><b>Email：</b>pkkfearyyyy@gmail.com</div>
+      </div>
+
+      <div class="section">
+        <h2>技能</h2>
+        <span class="skill">溝通能力</span>
+        <span class="skill">團隊合作</span>
+        <span class="skill">學習能力</span>
+        <span class="skill">時間管理</span>
+        <span class="skill">簡報製作</span>
+      </div>
+
+      <div class="section">
+        <h2>語言能力</h2>
+        <div class="info">中文：母語</div>
+        <div class="info">英文：基礎溝通</div>
+      </div>
+
+    </div>
+
+    <div class="content">
+
+      <div class="section">
+        <h2>自我介紹</h2>
+        <div class="card">
+          我是亞洲大學的學生，目前持續在校內學習與累積經驗。面對新的事物，我願意主動學習，也重視做事的態度與完成度。希望透過每一次任務與合作，慢慢培養自己的專業能力、溝通能力與解決問題的能力。
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>學歷</h2>
+        <div class="card">
+          <div class="card-title">亞洲大學</div>
+          在學中
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>個人特質</h2>
+        <div class="card">
+          <div class="card-title">認真負責</div>
+          對於交代的事情會盡力完成，並希望把事情做好。
+        </div>
+
+        <div class="card">
+          <div class="card-title">願意學習</div>
+          面對不熟悉的工作內容時，會保持開放態度，願意慢慢學會。
+        </div>
+
+        <div class="card">
+          <div class="card-title">重視合作</div>
+          在團體中願意配合他人，也希望一起把事情完成得更好。
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>目標</h2>
+        <div class="card">
+          希望透過學習與實務經驗，持續提升自己的能力，讓自己在未來不管是打工、實習或正式工作時，都能更有自信地面對各種挑戰。
+        </div>
+      </div>
+
+      <div class="button-area">
+        <button onclick="showMessage()">聯絡我</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    © <span id="year"></span> 吳瑋廷 Resume
+  </div>
+
 </div>
 
-<div class="main">
+<script>
+function showMessage(){
+  alert("Email: pkkfearyyyy@gmail.com");
+}
 
-<div class="sidebar">
-
-<div class="section">
-<h2>基本資料</h2>
-<div class="info"><b>姓名：</b>吳瑋廷</div>
-<div class="info"><b>學校：</b>亞洲大學</div>
-<div class="info"><b>學號：</b>114055034</div>
-<div class="info"><b>Email：</b>pkkfearyyyy@gmail.com</div>
-</div>
-
-<div class="section">
-<h2>技能</h2>
-<span class="skill">溝通能力</span>
-<span class="skill">團隊合作</span>
-<span class="skill">學習能力</span>
-<span class="skill">時間管理</span>
-<span class="skill">簡報製作</span>
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="section">
-<h2>自我介紹</h2>
-<div class="card">
-我是亞洲大學的學生，目前在大學就讀中。
-我對新的事物保持學習的態度，做事情認真負責，
-希望透過各種經驗提升自己的能力。
-</div>
-</div>
-
-<div class="section">
-<h2>學歷</h2>
-<div class="card">
-亞洲大學（在學中）
-</div>
-</div>
-
-<div class="section">
-<h2>目標</h2>
-<div class="card">
-希望透過學習與實務經驗，培養專業能力與團隊合作能力，
-為未來職涯打下基礎。
-</div>
-</div>
-
-<button onclick="alert('感謝查看我的履歷！')">聯絡我</button>
-
-</div>
-</div>
-
-<div class="footer">
-© 2026 吳瑋廷 Resume
-</div>
-
-</div>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
