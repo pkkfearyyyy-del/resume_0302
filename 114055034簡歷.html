@@ -2,291 +2,184 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>吳瑋廷｜個人履歷</title>
+<title>個人履歷</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;
-}
-
 body{
-  background:linear-gradient(135deg,#eef2ff,#f7f9ff);
-  padding:30px;
-  color:#222;
+margin:0;
+font-family:"Microsoft JhengHei";
+background:#efefef;
 }
 
+/* 外框 */
 .container{
-  max-width:950px;
-  margin:auto;
-  background:#fff;
-  border-radius:24px;
-  overflow:hidden;
-  box-shadow:0 14px 40px rgba(0,0,0,0.12);
+width:900px;
+margin:40px auto;
+background:white;
+padding:30px 40px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
 }
 
+/* 標題 */
+.title{
+text-align:center;
+font-size:32px;
+margin-bottom:30px;
+}
+
+/* 個人區 */
 .header{
-  background:linear-gradient(135deg,#4a5cff,#7a88ff);
-  color:white;
-  padding:40px 35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
 }
 
-.header h1{
-  font-size:34px;
-  margin-bottom:8px;
-  letter-spacing:1px;
-}
-
-.header p{
-  font-size:16px;
-  opacity:0.95;
-}
-
-.main{
-  display:grid;
-  grid-template-columns:300px 1fr;
-}
-
-.sidebar{
-  background:#f8f9ff;
-  padding:28px 24px;
-  border-right:1px solid #e8ebff;
-}
-
-.content{
-  padding:32px 30px;
-}
-
-.profile{
-  text-align:center;
-  margin-bottom:26px;
-}
-
-.profile img{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid #4a5cff;
-  box-shadow:0 8px 20px rgba(74,92,255,0.2);
-  background:#fff;
-}
-
-.section{
-  margin-bottom:28px;
-}
-
-.section h2{
-  font-size:18px;
-  color:#4a5cff;
-  margin-bottom:12px;
-  padding-bottom:6px;
-  border-bottom:2px solid #dfe5ff;
+.name{
+font-size:28px;
+font-weight:bold;
+margin-bottom:10px;
 }
 
 .info{
-  margin-bottom:10px;
-  font-size:15px;
-  line-height:1.7;
-  word-break:break-all;
+line-height:1.8;
+color:#444;
 }
 
-.skill{
-  display:inline-block;
-  background:#e9edff;
-  color:#4a5cff;
-  padding:7px 12px;
-  border-radius:999px;
-  margin:5px 5px 0 0;
-  font-size:14px;
-  font-weight:600;
+/* 照片 */
+.photo{
+width:120px;
+height:150px;
+background:#ddd;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:12px;
 }
 
-.card{
-  background:#fbfcff;
-  border:1px solid #ecefff;
-  border-radius:14px;
-  padding:16px;
-  margin-bottom:14px;
-  line-height:1.8;
-  transition:transform 0.2s ease, box-shadow 0.2s ease;
+/* 區塊 */
+.section{
+margin-top:25px;
 }
 
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 22px rgba(74,92,255,0.08);
+/* 藍色標籤 */
+.label{
+display:inline-block;
+background:#3f5fa8;
+color:white;
+padding:6px 14px;
+border-radius:0 10px 10px 0;
+margin-bottom:10px;
 }
 
-.card-title{
-  font-size:17px;
-  font-weight:700;
-  color:#2c3b9b;
-  margin-bottom:6px;
+/* 內容 */
+.content{
+border-top:1px solid #ccc;
+padding-top:10px;
+line-height:1.8;
+color:#444;
 }
 
-.button-area{
-  margin-top:18px;
+/* 波浪線 */
+.wave{
+border-bottom:2px dashed #999;
+margin:15px 0;
 }
 
+/* 按鈕 */
 button{
-  background:#4a5cff;
-  color:white;
-  border:none;
-  padding:11px 18px;
-  border-radius:12px;
-  cursor:pointer;
-  font-size:15px;
-  transition:0.2s ease;
+margin-top:10px;
+padding:8px 15px;
+background:#3f5fa8;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
-button:hover{
-  background:#3145ef;
-}
-
-.footer{
-  text-align:center;
-  padding:18px;
-  font-size:14px;
-  color:#666;
-  border-top:1px solid #eef1ff;
-  background:#fcfdff;
-}
-
-@media (max-width: 768px){
-  body{
-    padding:16px;
-  }
-
-  .main{
-    grid-template-columns:1fr;
-  }
-
-  .sidebar{
-    border-right:none;
-    border-bottom:1px solid #e8ebff;
-  }
-
-  .header{
-    padding:30px 24px;
-  }
-
-  .header h1{
-    font-size:28px;
-  }
-
-  .content{
-    padding:24px 20px;
-  }
+#msg{
+margin-top:10px;
+color:#3f5fa8;
+font-weight:bold;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="header">
-    <h1>吳瑋廷</h1>
-    <p>亞洲大學學生｜個人履歷網站</p>
-  </div>
+<div class="title">波浪線外框履歷表</div>
 
-  <div class="main">
+<div class="header">
+<div>
+<div class="name">你的名字</div>
+<div class="info">
+出生年月：請填寫<br>
+地址：請填寫<br>
+學校：亞洲大學<br>
+系級：室內設計系<br>
+學號：AU114001001
+</div>
+</div>
 
-    <div class="sidebar">
+<div class="photo">照片</div>
+</div>
 
-      <div class="profile">
-        <img src="images/profile.jpg" alt="吳瑋廷照片">
-      </div>
+<!-- 教育 -->
+<div class="section">
+<div class="label">教育背景</div>
+<div class="content">
+亞洲大學 室內設計學系<br>
+學習空間設計、繪圖與創作能力
+<div class="wave"></div>
+</div>
+</div>
 
-      <div class="section">
-        <h2>基本資料</h2>
-        <div class="info"><b>姓名：</b>吳瑋廷</div>
-        <div class="info"><b>學校：</b>亞洲大學</div>
-        <div class="info"><b>學號：</b>114055034</div>
-        <div class="info"><b>Email：</b>pkkfearyyyy@gmail.com</div>
-      </div>
+<!-- 經歷 -->
+<div class="section">
+<div class="label">經歷</div>
+<div class="content">
+● 社團活動經驗<br>
+● 團隊合作與活動規劃<br>
+● 自主學習畫畫與設計
+<div class="wave"></div>
+</div>
+</div>
 
-      <div class="section">
-        <h2>技能</h2>
-        <span class="skill">溝通能力</span>
-        <span class="skill">團隊合作</span>
-        <span class="skill">學習能力</span>
-        <span class="skill">時間管理</span>
-        <span class="skill">簡報製作</span>
-      </div>
+<!-- 技能 -->
+<div class="section">
+<div class="label">技能</div>
+<div class="content">
+● Sketch / 繪圖能力<br>
+● 空間觀察能力<br>
+● 創意思考<br>
+● 溝通與合作能力
+<div class="wave"></div>
+</div>
+</div>
 
-      <div class="section">
-        <h2>語言能力</h2>
-        <div class="info">中文：母語</div>
-        <div class="info">英文：基礎溝通</div>
-      </div>
+<!-- 自我介紹 -->
+<div class="section">
+<div class="label">自我介紹</div>
+<div class="content">
+我目前就讀亞洲大學室內設計系，對空間設計與創作充滿興趣。
+平時會透過描圖與觀察來提升自己的設計能力，也喜歡嘗試不同風格。
+希望未來能將創意與實用結合，設計出有溫度的空間。
+</div>
 
-    </div>
+<button onclick="hello()">點我</button>
+<div id="msg"></div>
 
-    <div class="content">
-
-      <div class="section">
-        <h2>自我介紹</h2>
-        <div class="card">
-          我是亞洲大學的學生，目前持續在校內學習與累積經驗。面對新的事物，我願意主動學習，也重視做事的態度與完成度。希望透過每一次任務與合作，慢慢培養自己的專業能力、溝通能力與解決問題的能力。
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>學歷</h2>
-        <div class="card">
-          <div class="card-title">亞洲大學</div>
-          在學中
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>個人特質</h2>
-        <div class="card">
-          <div class="card-title">認真負責</div>
-          對於交代的事情會盡力完成，並希望把事情做好。
-        </div>
-
-        <div class="card">
-          <div class="card-title">願意學習</div>
-          面對不熟悉的工作內容時，會保持開放態度，願意慢慢學會。
-        </div>
-
-        <div class="card">
-          <div class="card-title">重視合作</div>
-          在團體中願意配合他人，也希望一起把事情完成得更好。
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>目標</h2>
-        <div class="card">
-          希望透過學習與實務經驗，持續提升自己的能力，讓自己在未來不管是打工、實習或正式工作時，都能更有自信地面對各種挑戰。
-        </div>
-      </div>
-
-      <div class="button-area">
-        <button onclick="showMessage()">聯絡我</button>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="footer">
-    © <span id="year"></span> 吳瑋廷 Resume
-  </div>
+</div>
 
 </div>
 
 <script>
-function showMessage(){
-  alert("Email: pkkfearyyyy@gmail.com");
+function hello(){
+document.getElementById("msg").innerText="你已經比昨天更進步了一點點 ✨";
 }
-
-document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
