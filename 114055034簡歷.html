@@ -1,186 +1,302 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>個人履歷</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>個人履歷</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-body{
-margin:0;
-font-family:"Microsoft JhengHei";
-background:#efefef;
-}
+    body {
+      margin: 0;
+      background: #efefef;
+      font-family: "Microsoft JhengHei", Arial, sans-serif;
+      color: #333;
+    }
 
-/* 外框 */
-.container{
-width:900px;
-margin:40px auto;
-background:white;
-padding:30px 40px;
-box-shadow:0 0 20px rgba(0,0,0,0.1);
-}
+    .page {
+      width: 900px;
+      margin: 24px auto;
+      background: #fff;
+      padding: 24px 34px 40px;
+      min-height: 1200px;
+    }
 
-/* 標題 */
-.title{
-text-align:center;
-font-size:32px;
-margin-bottom:30px;
-}
+    .top-tag {
+      position: relative;
+      display: inline-block;
+      background: #4f67b4;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 12px 28px;
+      margin-bottom: 24px;
+    }
 
-/* 個人區 */
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:30px;
-}
+    .top-tag::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -24px;
+      width: 0;
+      height: 0;
+      border-top: 24px solid #3f57a0;
+      border-right: 42px solid transparent;
+    }
 
-.name{
-font-size:28px;
-font-weight:bold;
-margin-bottom:10px;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-top: 18px;
+    }
 
-.info{
-line-height:1.8;
-color:#444;
-}
+    .header-left {
+      flex: 1;
+    }
 
-/* 照片 */
-.photo{
-width:120px;
-height:150px;
-background:#ddd;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:12px;
-}
+    .name {
+      font-size: 52px;
+      color: #5d6fae;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      line-height: 1.1;
+    }
 
-/* 區塊 */
-.section{
-margin-top:25px;
-}
+    .subtitle {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
 
-/* 藍色標籤 */
-.label{
-display:inline-block;
-background:#3f5fa8;
-color:white;
-padding:6px 14px;
-border-radius:0 10px 10px 0;
-margin-bottom:10px;
-}
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 42px;
+      row-gap: 10px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
 
-/* 內容 */
-.content{
-border-top:1px solid #ccc;
-padding-top:10px;
-line-height:1.8;
-color:#444;
-}
+    .photo-box {
+      width: 160px;
+      height: 190px;
+      border: 1px solid #cfcfcf;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-top: 8px;
+      background: #f3f3f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 14px;
+    }
 
-/* 波浪線 */
-.wave{
-border-bottom:2px dashed #999;
-margin:15px 0;
-}
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-/* 按鈕 */
-button{
-margin-top:10px;
-padding:8px 15px;
-background:#3f5fa8;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
+    .section {
+      margin-top: 26px;
+      position: relative;
+      padding-left: 18px;
+    }
 
-#msg{
-margin-top:10px;
-color:#3f5fa8;
-font-weight:bold;
-}
-</style>
+    .section::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: -6px;
+      width: 2px;
+      background: #d0d0d0;
+    }
 
+    .section-title {
+      position: relative;
+      display: inline-block;
+      background: #4f67b4;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 8px 22px;
+      margin-bottom: 12px;
+      min-width: 128px;
+      text-align: center;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 0;
+      height: 0;
+      border-top: 12px solid #3f57a0;
+      border-right: 18px solid transparent;
+    }
+
+    .section-line {
+      border-top: 2px solid #bfc3cc;
+      margin-top: -2px;
+      margin-bottom: 14px;
+    }
+
+    .section-content {
+      font-size: 15px;
+      line-height: 2;
+      padding-left: 14px;
+    }
+
+    .paragraph {
+      margin-bottom: 12px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      line-height: 1.9;
+    }
+
+    .bullet-list li::before {
+      content: "▫";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #666;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contact-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      line-height: 1.9;
+    }
+
+    .contact-list li::before {
+      content: "▫";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #666;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 940px) {
+      .page {
+        width: auto;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .header {
+        flex-direction: column;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <div class="top-tag">個人履歷</div>
 
-<div class="container">
+    <div class="header">
+      <div class="header-left">
+        <div class="name">吳瑋廷</div>
+        <div class="subtitle">亞洲大學室內設計學系學生</div>
 
-<div class="title">波浪線外框履歷表</div>
+        <div class="info-grid">
+          <div>出生年月：2006.00</div>
+          <div>就讀學校：亞洲大學</div>
+          <div>居住地：台中市</div>
+          <div>科系年級：室內設計學系一年級</div>
+          <div>學號：114055034</div>
+          <div>Email：yourmail@example.com</div>
+        </div>
+      </div>
 
-<div class="header">
-<div>
-<div class="name">你的名字</div>
-<div class="info">
-出生年月：請填寫<br>
-地址：請填寫<br>
-學校：亞洲大學<br>
-系級：室內設計系<br>
-學號：AU114001001
-</div>
-</div>
+      <div class="photo-box">
+        <img src="images/me.jpg" alt="個人照片">
+      </div>
+    </div>
 
-<div class="photo">照片</div>
-</div>
+    <div class="section">
+      <div class="section-title">教育背景</div>
+      <div class="section-line"></div>
+      <div class="section-content">
+        <div class="paragraph">
+          亞洲大學 室內設計學系（就讀中）
+        </div>
+        <div class="paragraph">
+          學習內容包含空間設計、設計表現、基本繪圖、空間觀察與創意思考等，持續培養對生活空間的敏感度與實作能力。
+        </div>
+      </div>
+    </div>
 
-<!-- 教育 -->
-<div class="section">
-<div class="label">教育背景</div>
-<div class="content">
-亞洲大學 室內設計學系<br>
-學習空間設計、繪圖與創作能力
-<div class="wave"></div>
-</div>
-</div>
+    <div class="section">
+      <div class="section-title">經歷</div>
+      <div class="section-line"></div>
+      <div class="section-content">
+        <ul class="bullet-list">
+          <li>曾參與國際外交菁英社，擔任公關相關工作。</li>
+          <li>參與活動規劃與戶外教學安排，協助設計學習單內容。</li>
+          <li>曾進行自主學習，透過人物素描培養觀察與表現能力。</li>
+          <li>近期開始練習室內空間描圖，提升對比例、動線與氛圍的理解。</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- 經歷 -->
-<div class="section">
-<div class="label">經歷</div>
-<div class="content">
-● 社團活動經驗<br>
-● 團隊合作與活動規劃<br>
-● 自主學習畫畫與設計
-<div class="wave"></div>
-</div>
-</div>
+    <div class="section">
+      <div class="section-title">技能</div>
+      <div class="section-line"></div>
+      <div class="section-content">
+        <ul class="bullet-list">
+          <li>具備素描與繪畫基礎，能透過臨摹與觀察累積表現能力。</li>
+          <li>對空間配置、生活動線與居家氛圍具有觀察興趣。</li>
+          <li>具備創意思考、設計發想與視覺整理能力。</li>
+          <li>能與他人合作完成活動與任務，具基本溝通協調能力。</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- 技能 -->
-<div class="section">
-<div class="label">技能</div>
-<div class="content">
-● Sketch / 繪圖能力<br>
-● 空間觀察能力<br>
-● 創意思考<br>
-● 溝通與合作能力
-<div class="wave"></div>
-</div>
-</div>
-
-<!-- 自我介紹 -->
-<div class="section">
-<div class="label">自我介紹</div>
-<div class="content">
-我目前就讀亞洲大學室內設計系，對空間設計與創作充滿興趣。
-平時會透過描圖與觀察來提升自己的設計能力，也喜歡嘗試不同風格。
-希望未來能將創意與實用結合，設計出有溫度的空間。
-</div>
-
-<button onclick="hello()">點我</button>
-<div id="msg"></div>
-
-</div>
-
-</div>
-
-<script>
-function hello(){
-document.getElementById("msg").innerText="你已經比昨天更進步了一點點 ✨";
-}
-</script>
-
+    <div class="section">
+      <div class="section-title">自我介紹</div>
+      <div class="section-line"></div>
+      <div class="section-content">
+        <ul class="contact-list">
+          <li>我目前就讀亞洲大學室內設計學系，對空間設計與生活美感充滿興趣。</li>
+          <li>平時會透過描圖、觀察與素描練習，慢慢累積自己的設計基礎。</li>
+          <li>希望未來能將創意與實用結合，設計出真正讓人感到舒適的空間。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
