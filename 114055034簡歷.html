@@ -223,7 +223,9 @@
     }
   </style>
 </head>
+
 <body>
+
   <div class="page">
     <div class="top-tag">個人履歷</div>
 
@@ -298,5 +300,25 @@
       </div>
     </div>
   </div>
+
+ <audio id="bgm" autoplay loop playsinline>
+  <source src="music/music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const audio = document.getElementById("bgm");
+
+  // 嘗試直接播放
+  audio.play().catch(() => {
+    // 若被擋，快速解除靜音再播放
+    audio.muted = true;
+    audio.play();
+
+    setTimeout(() => {
+      audio.muted = false;
+    }, 100);
+  });
+</script>
+
 </body>
 </html>
